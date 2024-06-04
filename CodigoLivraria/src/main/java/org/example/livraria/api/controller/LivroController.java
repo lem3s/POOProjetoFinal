@@ -27,4 +27,13 @@ public class LivroController {
         }
         return null;
     }
+
+    @GetMapping("/estoque")
+    public Livro getEstoque (){
+        Optional estoque = livroServico.getLivro(id);
+        if (livro.isPresent()) {
+            return (Livro) livro.get();
+        }
+        return null;
+    }
 }
