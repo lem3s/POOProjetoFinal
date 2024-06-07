@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Estoque {
-    List<Livro> livros = new ArrayList<>();
+    private List<Livro> livros = new ArrayList<Livro>();
 
     public void adicionarLivro(Livro livro) {
         livros.add(livro);
@@ -18,5 +18,9 @@ public class Estoque {
             }
         }
         return false;
+    }
+
+    public List<Livro> getEstoque(){
+       return livros;
     }
 }

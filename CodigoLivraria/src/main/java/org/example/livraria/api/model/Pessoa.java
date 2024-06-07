@@ -1,6 +1,6 @@
 package org.example.livraria.api.model;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
     private String cpf;
     private String telefone;
