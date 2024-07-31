@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class EstoqueServico {
     private Estoque estoque;
+    private static final String ARQUIVO_ESTOQUE = "estoque.ser";
 
     public EstoqueServico (){
         estoque = new Estoque();

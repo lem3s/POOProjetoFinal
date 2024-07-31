@@ -1,20 +1,14 @@
 package org.example.livraria.api.model;
 
-enum Generos {
-    FICCAO,
-    TERROR,
-    BIOGRAFIA,
-    INFANTIL,
-    ACADEMICO,
-    ROMANCE
-}
+import java.io.Serializable;
+import java.util.List;
 
-public class Livro {
+public class Livro implements Serializable {
     private static int contador = 1;
 
     private int id;
     private String titulo;
-    private String autor;
+    private List<Autor> autores;
     private double preco;
     private int quantidade;
 

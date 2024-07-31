@@ -1,6 +1,8 @@
 package org.example.livraria.api.model;
 
-public class LivroNotaFiscal {
+import java.io.Serializable;
+
+public class LivroNotaFiscal implements Serializable {
     String titulo;
     double valor;
     double quantidade;

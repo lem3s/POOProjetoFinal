@@ -1,6 +1,8 @@
 package org.example.livraria.api.model;
 
-public class Vendedor extends Pessoa{
+import java.io.Serializable;
+
+public class Vendedor extends Pessoa implements Serializable {
     private double salario;
 
     public double getSalario() {
