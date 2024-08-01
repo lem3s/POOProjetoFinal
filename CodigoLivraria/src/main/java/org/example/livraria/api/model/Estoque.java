@@ -11,6 +11,10 @@ public class Estoque implements Serializable {
         livros.add(livro);
     }
 
+    public void adicionarListaDeLivros(List<Livro> livros) {
+        livros.addAll(livros);
+    }
+
     public boolean removerLivro(Livro livro) {
         for (Livro _livro : livros) {
             if (_livro.getId() == livro.getId()) {

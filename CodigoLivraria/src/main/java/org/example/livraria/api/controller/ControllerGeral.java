@@ -5,6 +5,8 @@ import org.example.livraria.servico.EstoqueServico;
 import org.example.livraria.servico.LivroServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -29,5 +31,10 @@ public class ControllerGeral {
     @GetMapping("/estoque")
     public List<Livro> getEstoque (){
         return estoqueServico.retornaLivrosEmEstoque();
+    }
+
+    @PostMapping("/adicionaLivro")
+    public Livro adicionaLivro(@RequestBody Livro livro) {
+        return estoqueServico.adicionaLivro(livro);
     }
 }

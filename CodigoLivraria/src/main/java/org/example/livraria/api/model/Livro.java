@@ -8,9 +8,12 @@ public class Livro implements Serializable {
 
     private int id;
     private String titulo;
-    private List<Autor> autores;
+    private Autor autor;
     private double preco;
     private int quantidade;
+
+    public Livro() {
+    }
 
     public Livro(String titulo) {
         this.id = contador++;

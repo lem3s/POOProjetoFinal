@@ -13,14 +13,21 @@ public class EstoqueServico {
     private static final String ARQUIVO_ESTOQUE = "estoque.ser";
 
     public EstoqueServico (){
-        estoque = new Estoque();
-
-        estoque.adicionarLivro(new Livro("Capitães da Areia"));
-        estoque.adicionarLivro(new Livro("O Rei da Vela"));
-        estoque.adicionarLivro(new Livro("Niketche"));
+        if (PersistenciaUtil.arquivoExiste(ARQUIVO_ESTOQUE)){
+           estoque.adicionarListaDeLivros(PersistenciaUtil.desserealizarLista(ARQUIVO_ESTOQUE));
+        }
+        else {
+            estoque = new Estoque();
+        }
     }
 
     public List<Livro> retornaLivrosEmEstoque() {
         return estoque.getEstoque();
+    }
+
+    public Livro adicionaLivro(Livro livro) {
+        estoque.adicionarLivro(livro);
+        PersistenciaUtil.serializaLista(estoque.getEstoque(), ARQUIVO_ESTOQUE);
+        return livro;
     }
 }
