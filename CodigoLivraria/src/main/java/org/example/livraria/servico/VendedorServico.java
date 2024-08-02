@@ -16,4 +16,23 @@ import java.util.List;
 public class VendedorServico {
     private static final String ARQUIVO_VENDEDORES = "vendedores.ser";
 
+    public VendedorServico (){
+        if (PersistenciaUtil.arquivoExiste(ARQUIVO_VENDEDORES)){
+            vendedores.adicionarListaDeVendedores(PersistenciaUtil.desserealizarLista(ARQUIVO_VENDEDORES));
+        }
+        else {
+            vendedores = new Vendedor();
+        }
+    }
+
+    public List<Vendedor> retornaVendedores() {
+        return vendedores.getVendedores();
+    }
+
+    public Vendedor adicionaVendedor(Vendedor vendedor) {
+        vendedores.adicionarVendedor(vendedor);
+        PersistenciaUtil.serializaLista(vendedores.getVendedores(), ARQUIVO_VENDEDORES);
+        return vendedor;
+    }
+
 }
