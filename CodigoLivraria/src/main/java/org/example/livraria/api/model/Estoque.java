@@ -18,9 +18,9 @@ public class Estoque implements Serializable {
         this.livros.addAll(livros);
     }
 
-    public boolean removerLivro(Livro livro) {
+    public boolean removerLivro(int id) {
         for (Livro _livro : livros) {
-            if (_livro.getId() == livro.getId()) {
+            if (_livro.getId() == id) {
                 livros.remove(_livro);
                 return true;
             }

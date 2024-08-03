@@ -4,10 +4,7 @@ import org.example.livraria.api.model.Livro;
 import org.example.livraria.servico.EstoqueServico;
 import org.example.livraria.servico.LivroServico;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +33,10 @@ public class ControllerGeral {
     @PostMapping("/adicionaLivro")
     public Livro adicionaLivro(@RequestBody Livro livro) {
         return estoqueServico.adicionaLivro(livro);
+    }
+
+    @PostMapping("/removeLivro")
+    public boolean removeLivro(@RequestParam("id") String id) {
+        return estoqueServico.removerLivro(Integer.parseInt(id));
     }
 }

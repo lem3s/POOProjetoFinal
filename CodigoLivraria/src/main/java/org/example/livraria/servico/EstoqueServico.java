@@ -35,6 +35,10 @@ public class EstoqueServico {
         return livro;
     }
 
+    public boolean removerLivro(int id) {
+       return estoque.removerLivro(id);
+    }
+
     private void salvaEstoque() {
         try {
             objectMapper.writeValue(new File(ARQUIVO_ESTOQUE), estoque);
