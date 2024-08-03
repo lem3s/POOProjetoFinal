@@ -7,12 +7,15 @@ import java.util.List;
 public class Estoque implements Serializable {
     private List<Livro> livros = new ArrayList<Livro>();
 
+    public Estoque() {
+    }
+
     public void adicionarLivro(Livro livro) {
         livros.add(livro);
     }
 
     public void adicionarListaDeLivros(List<Livro> livros) {
-        livros.addAll(livros);
+        this.livros.addAll(livros);
     }
 
     public boolean removerLivro(Livro livro) {

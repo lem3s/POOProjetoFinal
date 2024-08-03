@@ -13,10 +13,10 @@ public class Livro implements Serializable {
     private int quantidade;
 
     public Livro() {
+        this.id = contador++;
     }
 
     public Livro(String titulo) {
-        this.id = contador++;
         this.titulo = titulo;
     }
 
