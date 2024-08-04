@@ -1,5 +1,6 @@
 package org.example.livraria.servico;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.livraria.api.model.Estoque;
 import org.example.livraria.api.model.Livro;
@@ -15,27 +16,35 @@ import java.util.List;
 
 @Service
 public class VendedorServico {
-    private static final String ARQUIVO_VENDEDORES = "vendedores.ser";
-    private ObjectMapper objectMapper;
-    private Vendedor vendedores;
+    private static final String ARQUIVO_VENDEDORES = "vendedores.json";
+    private ObjectMapper objectMapper = new ObjectMapper();
+    private List<Vendedor> vendedores;
 
     public VendedorServico() {
-        objectMapper = new ObjectMapper();
+        vendedores = new ArrayList<Vendedor>();
+
         if (PersistenciaUtil.arquivoExiste(ARQUIVO_VENDEDORES)) {
             carregaVendedores();
         }
     }
 
-    public List<Vendedor> retornaVendedores() { return vendedores.getVendedores(); }
+    public List<Vendedor> retornaVendedores() { return vendedores; }
 
     public Vendedor adicionaVendedor(Vendedor vendedor) {
-        vendedor.adicionarVendedor(vendedores);
+        vendedores.add(vendedor);
         salvaVendedores();
+
         return vendedor;
     }
 
     public boolean removeVendedor(String cpf) {
-        return vendedores.removerVendedor(cpf);
+        for (Vendedor _vendedor : vendedores) {
+            if (_vendedor.getcpf().equals(cpf)) {
+                vendedores.remove(_vendedor);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void salvaVendedores() {
@@ -48,7 +57,7 @@ public class VendedorServico {
 
     public void carregaVendedores() {
         try {
-            vendedores = objectMapper.readValue(new java.io.File(ARQUIVO_VENDEDORES), Vendedor.class);
+            vendedores = objectMapper.readValue(new java.io.File(ARQUIVO_VENDEDORES), new TypeReference<List<Vendedor>>() {});
         } catch (IOException e) {
             e.printStackTrace();
         }

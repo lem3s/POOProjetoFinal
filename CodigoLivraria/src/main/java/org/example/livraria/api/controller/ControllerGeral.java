@@ -16,14 +16,12 @@ import java.util.List;
 public class ControllerGeral {
 
     private EstoqueServico estoqueServico;
-    private LivroServico livroServico;
     private ClienteServico clienteServico;
     private VendedorServico vendedorServico;
 
     @Autowired
-    public ControllerGeral(EstoqueServico estoqueServico, LivroServico livroServico, ClienteServico clienteServico, VendedorServico vendedorServico) {
+    public ControllerGeral(EstoqueServico estoqueServico, ClienteServico clienteServico, VendedorServico vendedorServico) {
         this.estoqueServico = estoqueServico;
-        this.livroServico = livroServico;
         this.clienteServico = clienteServico;
         this.vendedorServico = vendedorServico;
     }
