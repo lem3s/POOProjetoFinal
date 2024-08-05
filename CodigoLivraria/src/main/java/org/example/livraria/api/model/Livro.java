@@ -3,6 +3,9 @@ package org.example.livraria.api.model;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * As informações que o livro possui
+ */
 public class Livro implements Serializable {
     private static int contador = 1;
 

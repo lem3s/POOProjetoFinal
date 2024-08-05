@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * As informações do cliente
+ */
 public class Cliente extends Pessoa implements Serializable {
     private String endereco;
     private List<LivroNotaFiscal> notasFiscais = new ArrayList<>();

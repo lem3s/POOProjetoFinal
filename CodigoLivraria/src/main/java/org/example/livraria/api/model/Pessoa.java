@@ -2,6 +2,9 @@ package org.example.livraria.api.model;
 
 import java.io.Serializable;
 
+/**
+ * Classe base para as outras que precisam das informações de uma pessoa
+ */
 public abstract class Pessoa implements Serializable {
     private String nome;
     private String cpf;

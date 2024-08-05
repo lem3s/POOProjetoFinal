@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * As informações do estoque
+ */
 public class Estoque implements Serializable {
     private List<Livro> livros = new ArrayList<Livro>();
 
@@ -12,10 +15,6 @@ public class Estoque implements Serializable {
 
     public void adicionarLivro(Livro livro) {
         livros.add(livro);
-    }
-
-    public void adicionarListaDeLivros(List<Livro> livros) {
-        this.livros.addAll(livros);
     }
 
     public boolean removerLivro(int id) {

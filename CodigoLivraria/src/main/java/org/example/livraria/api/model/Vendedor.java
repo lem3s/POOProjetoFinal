@@ -3,6 +3,9 @@ package org.example.livraria.api.model;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * As informações do vendedor
+ */
 public class Vendedor extends Pessoa implements Serializable {
     private double salario;
 
